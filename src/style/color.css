@@ -1,0 +1,68 @@
+.colorGroup{
+    width: 25px;
+    height: 25px;
+    border: 1px black solid;
+
+}
+#colorselection{
+    display: flex;
+}
+#select1{
+    background-color: #000000;
+    width: 50px;
+    height: 50px;
+    border: 1px black solid;
+    
+}
+#colors{
+    display: flex;
+}
+
+#color1{
+    background-color: #000000;
+}
+#color2{
+    background-color: #FFFFFF;
+}
+#color3{
+    background-color: #808080;
+}
+#color4{
+    background-color: #C0C0C0;
+}
+#color5{
+    background-color: #FF0000;
+}
+#color6{
+    background-color: #800000;
+}
+#color7{
+    background-color: #FFFF00;
+}
+#color8{
+    background-color: #808000;
+}
+#color9{
+    background-color: #00FF00;
+}
+#color10{
+    background-color: #008000;
+}
+#color11{
+    background-color: #00FFFF;
+}
+#color12{
+    background-color: #008080;
+}
+#color13{
+    background-color: #0000FF;
+}
+#color14{
+    background-color: #000080;
+}
+#color15{
+    background-color: #FF00FF;
+}
+#color16{
+    background-color: #800080;
+}

@@ -1,15 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
-import Swiper from 'swiper';
 import Hammer from 'hammerjs'
+import ColorPicker from "./ColorPicker";
 import '../style/game.css'
 
 
 
 const Game =(props)=>{
     const contextRef = useRef(null);
-
-    const [score, setScore] = useState(0)
-    const [playXY,setPlayXY] = useState({x:window.innerWidth/2,y:window.innerHeight-100})
+    const [pickedColor,setPickedColor] = useState("#000000")
     const [isDraw,setIsDraw] = useState(false)
 
     const canvasRef = useRef(null)
@@ -24,8 +22,6 @@ const Game =(props)=>{
       hamManage.add(Press)
       hamManage.add(Tap)
       hamManage.add(Swipe)
-      var deltaX = 0;
-      var deltaY = 0;
       hamManage.on('swipe', function(e) {
         console.log('swipe',e)
         // move(e)
@@ -36,12 +32,7 @@ const Game =(props)=>{
       hamManage.on('pressup',function(e){
         console.log('Pressign',e)
       })
-      // hamManage.on('pan',function(e){
-      //   console.log('panning',e)
-      //   // start(e)
-      //   // draw(e)
-      //   // finDraw()
-      // })
+
     }
 
     const start = ({nativeEvent}) =>{
@@ -57,6 +48,24 @@ const Game =(props)=>{
       contextRef.current.closePath()
       setIsDraw(false)
     }
+    
+    const getImage = async (btn) =>{
+      const can = canvasRef.current.toDataURL('image/png')
+      const blob = await (await fetch(can)).blob();
+      const blobURL = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      console.log(can)
+      link.href = blobURL
+      link.download = 'coolpic.png'
+      link.click()
+    }
+    const colorSelect =(e) =>{
+      console.log(e)
+      console.log(contextRef.strokeStyle)
+      setPickedColor(e)
+
+
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const draw = ({nativeEvent}) =>{
@@ -69,13 +78,12 @@ const Game =(props)=>{
           const x = offsetX
           const y = offsetY
         let ctx = contextRef.current
-        ctx.strokeStyle = '#ff3300'
+         ctx.strokeStyle = pickedColor
+        console.log(ctx.strokeStyle)
         ctx.lineTo(x,y)
         ctx.stroke();
     }
     useEffect(() => {
-
-
       const canvas = canvasRef.current
       canvas.width = window.innerWidth*2;
       canvas.height = window.innerHeight*2;
@@ -85,14 +93,14 @@ const Game =(props)=>{
       const context = canvas.getContext("2d")
       context.scale(2, 2);
       context.lineCap = "round";
-      context.strokeStyle = "black";
+      // context.strokeStyle = "black";
       context.lineWidth = 5;
       contextRef.current = context;
     }, [])
 
 
     return(
-        <div id = "game-wrap"><canvas className="gzone" id="gzone" ref={canvasRef} onMouseDown={start} onMouseMove={draw} onMouseUp={finDraw}></canvas>
+        <div id = "game-wrap"><canvas className="gzone" id="gzone" ref={canvasRef} onMouseDown={start} onMouseMove={draw} onMouseUp={finDraw}></canvas><button  onClick={getImage}> Download</button><ColorPicker selectColor={colorSelect}>s</ColorPicker>
         </div>
     )
 }
