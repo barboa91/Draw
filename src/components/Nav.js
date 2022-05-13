@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 // import '../style/nav.css'
 import React from "react";
 import { useState, useEffect } from "react"
+import '../style/nav.css'
 
 
 
@@ -44,12 +45,11 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
                   </div>
                 </Link>
               </li>
-              <li className="navLinks"> Welcome {user.username} </li>
 
 
-              <li className="navLinks">
+              <li className="navLinks">Welcome 
                 <Link className="navLinks" to={"/profile"}>
-                  Profile
+                {user.id}
                 </Link>
               </li>
               <li className="navLinks">
@@ -57,26 +57,32 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
                   Sign Out
                 </Link>
               </li>
+          <Link to= "/game"> Draw! </Link>
+              <li></li>
             </ul>
          
-          <div className="navLinks">
 
-          </div>
         </nav>
       </div>
     );
   }
   let publicOptions = (
-    
     <div className="welcomeNav">
-
       <nav className="navigation">
-          <Link to="/register">Create Account</Link>
-          <Link to="/login"> Login </Link>
-          <Link to= "/game"> Draw! </Link>
+        <ul className="list">
+          <li className="navLinks">
+            <Link to="/register">Create Account</Link>
+          </li>
+          <li className="navLinks">
+            <Link to="/login"> Login </Link>
+          </li>
+          <li className="navLinks">
+            <Link to="/game"> Draw! </Link>
+          </li>
+        </ul>
       </nav>
-      </div>
-      )
+    </div>
+  );
 
 
       return (

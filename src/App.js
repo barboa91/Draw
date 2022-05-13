@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Nav from './components/Nav';
 import Register from './components/Register';
 import Game from './components/Game';
+import Feed from './components/Feed';
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -25,7 +26,10 @@ function App() {
 
 
   const handleLogOut = () =>{
+    console.log(user)
     setUser(null)
+    toggleAuthenticated(false)
+
   }
 
   useEffect(()=>{
@@ -36,7 +40,6 @@ function App() {
   },[])
   return (
     <div className="App">
-        <div>{user.username}</div>
       
 
 
@@ -47,7 +50,7 @@ function App() {
         <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
         <Route path="/register" exact element={<Register/>} />
         <Route path="/game" exact element={<Game/>} />
-
+        <Route path="/feed" exact element={<Feed/>} />
 
       </Routes>
       </Router>

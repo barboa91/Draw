@@ -17,7 +17,7 @@ const Register = (props) =>{
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const newU = { username:formVal.username, password:formVal.password}
+        const newU = { username:formVal.username, password:formVal.password, profile:""}
         const payload = await CreateUser(newU)
         setFormVal({ username: '', password: '' })
         console.log(payload)
