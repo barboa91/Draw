@@ -10,11 +10,15 @@ import '../style/feed.css'
 const Feed = (props) =>{
     const { user } = props
     const [pics, setPics] = useState([])
+    const [cardFocus,setCardFocus] = useState([false,{}])
 
     const deletepic = async (picId) =>{
         let delpic = await deletePost(picId)
         console.log(delpic)
     }
+    const focusCard= (post) =>{
+        setCardFocus([true,post])
+      }
     console.log(user.id)
     useEffect(()=>{
         let x = async()=>{
@@ -27,13 +31,14 @@ const Feed = (props) =>{
         //  setPics(x)//get all drawings
          console.log(pics)
     },[])
+
     if(pics)
     return (
-    <div>
-        
-        {pics.map( x =>(
-        <div key ={x.id}><div>{x.title}</div><img alt='pic' className="imgTile" src={x.url}/>{user.id === x.userId ? <div className="deleteButton" onClick={deletepic(x.id)}>Delete</div>:null}<div></div></div>
+    <div className="feed">
+        {cardFocus[0] ? <div className="imgTile" key  ={cardFocus[1].id} onClick={() => setCardFocus(...cardFocus, (cardFocus[0] = false))}><div>{cardFocus[1].title}</div><img alt='pic' className="imgsquare" src={cardFocus[1].url}/>{user.id === cardFocus[1].userId ? <div className="deleteButton" onClick={()=>deletepic(cardFocus[1].id)}>Delete</div>:null}<div></div></div> : pics.reverse().map( x =>(
+        <div className="imgTile" key  ={x.id} onClick={() => focusCard(x)}><div>{x.title}</div><img alt='pic' className="imgsquare" src={x.url}/>{user.id === x.userId ? <div className="deleteButton" onClick={()=>deletepic(x.id)}>Delete</div>:null}<div></div></div>
     ))}
+        
 
     {/* {pics[0].id} */}
 

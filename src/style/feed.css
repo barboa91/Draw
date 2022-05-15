@@ -1,4 +1,18 @@
 .imgTile{
-    height: 400px;
-    width: 400px;
+    height: px;
+    width: 32%;
+    /* flex: 0 0 33.3333%; */
+
+}
+.feed{
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    flex: 0 0 33.3333%;
+    margin: 0 auto;
+}
+.imgsquare{
+    margin: auto;
+    text-align: center;
+    width: 100%;
 }

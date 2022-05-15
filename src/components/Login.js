@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { UserSignIn } from '../services/auth'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 const Login = (props) =>{
 
-    const navigate = Navigate
+    const navigate = useNavigate()
     const [formVal, setFormVal] = useState({
         username:"",
         password:""

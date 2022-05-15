@@ -52,7 +52,7 @@ function App() {
         <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
         <Route path="/register" exact element={<Register/>} />
         <Route path="/game" exact element={<Game/>} />
-        <Route path="/feed" exact element={<Feed user={user}/>} />
+        <Route path="/" exact element={<Feed user={user}/>} />
         <Route path="/profile" exact element={<Profile user={user}/>} />
 
       </Routes>
