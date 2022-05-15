@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { UserSignIn } from '../services/auth'
+import { Navigate } from 'react-router-dom'
 
 
 const Login = (props) =>{
 
+    const navigate = Navigate
     const [formVal, setFormVal] = useState({
         username:"",
         password:""
@@ -21,6 +23,7 @@ const Login = (props) =>{
         props.setUser(payload)
         if (payload){
             props.toggleAuthenticated(true)
+            navigate('/profile')
         }else{
             setLogStatus("Bad")
             alert("badd")

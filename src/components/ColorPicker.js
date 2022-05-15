@@ -17,7 +17,6 @@ const ColorPicker = (props) =>{
         <div id='colorselection'>
             Selected Color
             <div id='select1'></div>
-        </div>
         <div id="colors">
             <div className ="colorGroup" id='color1' onClick={returnColor}></div>
             <div className ="colorGroup" id='color2' onClick={returnColor}></div>
@@ -35,6 +34,7 @@ const ColorPicker = (props) =>{
             <div className ="colorGroup" id='color14' onClick={returnColor}></div>
             <div className ="colorGroup" id='color15' onClick={returnColor}></div>
             <div className ="colorGroup" id='color16' onClick={returnColor}></div>
+        </div>
         </div>
     </div>
     )

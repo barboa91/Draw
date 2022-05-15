@@ -9,6 +9,8 @@ import Nav from './components/Nav';
 import Register from './components/Register';
 import Game from './components/Game';
 import Feed from './components/Feed';
+import Profile from './components/Profile'
+
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -50,7 +52,8 @@ function App() {
         <Route path="/login" exact element={<Login setUser={setUser} toggleAuthenticated={toggleAuthenticated} />} />
         <Route path="/register" exact element={<Register/>} />
         <Route path="/game" exact element={<Game/>} />
-        <Route path="/feed" exact element={<Feed/>} />
+        <Route path="/feed" exact element={<Feed user={user}/>} />
+        <Route path="/profile" exact element={<Profile user={user}/>} />
 
       </Routes>
       </Router>

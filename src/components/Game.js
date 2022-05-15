@@ -100,7 +100,7 @@ const Game =(props)=>{
 
 
     return(
-        <div id = "game-wrap"><canvas className="gzone" id="gzone" ref={canvasRef} onMouseDown={start} onMouseMove={draw} onMouseUp={finDraw}></canvas><button  onClick={getImage}> Download</button><ColorPicker selectColor={colorSelect}>s</ColorPicker>
+        <div id = "game-wrap"><ColorPicker selectColor={colorSelect}>s</ColorPicker><canvas className="gzone" id="gzone" ref={canvasRef} onMouseDown={start} onMouseMove={draw} onMouseUp={finDraw}></canvas><button  onClick={getImage}> Download</button>
         </div>
     )
 }

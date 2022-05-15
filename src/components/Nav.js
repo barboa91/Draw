@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useState, useEffect } from "react"
 import '../style/nav.css'
+import ColorPicker from "./ColorPicker";
 
 
 
@@ -49,7 +50,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
               <li className="navLinks">Welcome 
                 <Link className="navLinks" to={"/profile"}>
-                {user.id}
+                {user.username}
                 </Link>
               </li>
               <li className="navLinks">
