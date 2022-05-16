@@ -35,8 +35,8 @@ const Feed = (props) =>{
     if(pics)
     return (
     <div className="feed">
-        {cardFocus[0] ? <div className="imgTile" key  ={cardFocus[1].id} onClick={() => setCardFocus(...cardFocus, (cardFocus[0] = false))}><div>{cardFocus[1].title}</div><img alt='pic' className="imgsquare" src={cardFocus[1].url}/>{user.id === cardFocus[1].userId ? <div className="deleteButton" onClick={()=>deletepic(cardFocus[1].id)}>Delete</div>:null}<div></div></div> : pics.reverse().map( x =>(
-        <div className="imgTile" key  ={x.id} onClick={() => focusCard(x)}><div>{x.title}</div><img alt='pic' className="imgsquare" src={x.url}/>{user.id === x.userId ? <div className="deleteButton" onClick={()=>deletepic(x.id)}>Delete</div>:null}<div></div></div>
+        {cardFocus[0] ? <div className="imgTile" key  ={cardFocus[1].id} ><div>{cardFocus[1].title}</div><img className="bigImage" onClick={() => setCardFocus(...cardFocus, (cardFocus[0] = false))} alt='pic' src={cardFocus[1].url}/>{user.id === cardFocus[1].userId ? <div className="deleteButton" onClick={()=>deletepic(cardFocus[1].id)}>Delete</div>:null}<div></div></div> : pics.reverse().map( x =>(
+        <div className="imgTile" key  ={x.id} ><div>{x.title}</div><img onClick={() => focusCard(x)} alt='pic' className="imgsquare" src={x.url}/>{user.id === x.userId ? <div className="deleteButton" onClick={()=>deletepic(x.id)}>Delete</div>:null}<div></div></div>
     ))}
         
 

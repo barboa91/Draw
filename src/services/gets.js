@@ -9,3 +9,12 @@ export const getPosts = async () => {
         throw error
     }
 }
+export const getUserPosts = async (userId) => {
+    try {
+        const res = await Client.get(`/posts/feed/${userId}`)
+        // console.log(res.data)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}

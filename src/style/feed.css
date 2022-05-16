@@ -16,3 +16,22 @@
     text-align: center;
     width: 100%;
 }
+.profileFeed{
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    flex: 0 0 33.3333%;
+    margin: 0 auto;
+}
+
+.bigImage{
+    width:min-content;
+    height: auto;
+    contain: content;
+}
+.bigDesc{
+    width: 90%;
+    height: auto;
+    position: relative;
+
+}
